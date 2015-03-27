@@ -6,11 +6,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Simulador Certificaçao </title>
+        
     </h:head>
     <h:body>
+        <h:outputStylesheet library="css" name="TreinaCertificacao.css"/>
         <p:panel>
             <h1>
-                <p:panel> <h:outputLabel value="Simulador da Certificação." style="color: darkblue"/></p:panel> 
+                <p:panel> <h:outputLabel value="Simulador." style="color: darkblue"/></p:panel> 
             </h1>
             
             <h5>Sistema de treinamento para as certificações do BB.  </h5>
@@ -19,15 +21,15 @@
             <p:panel>
             <h:panelGrid columns="14" style="font-size: 15px" >
                 <h:outputLabel value="Todas: " style="font-weight:bold"/>
-                <h:outputLabel value="#{PerguntaBean.numeroQuestoes}"/> 
+                <h:outputLabel value="(100)"/> 
                 <h:outputLabel value="Resolvidas: "/>
                 <h:outputLabel value="(12)" style="color: blue"/>
                 <h:outputLabel value="Não Resolvidas: "/>
-                <h:outputLabel value="(14)"/>
-                <h:outputLabel value="Acertei: "/>
-                <h:outputLabel value="(15)" style="color: green"/>
-                <h:outputLabel value="Errei: "/>
-                <h:outputLabel value="(45)" style="color: red"/>
+                <h:outputLabel value="(88)"/>
+                <h:outputLabel value="Acertos: "/>
+                <h:outputLabel value="(10)" style="color: green"/>
+                <h:outputLabel value="Erros: "/>
+                <h:outputLabel value="(2)" style="color: red"/>
                 
             </h:panelGrid>
             </p:panel>
@@ -52,8 +54,14 @@
             <f:selectItem itemLabel="Tecnologia da Informação" itemValue="12" />
             <f:selectItem itemLabel="Economia e Finanças" itemValue="13" />            
           </p:selectOneMenu> 
+           
+             
+             
              <p:outputLabel value= "Ano:" style="color: darkblue; font-weight:bold"/>
-              <p:selectOneMenu id="Ano" value="Lista de Matérias: ">
+            
+             
+             
+            <p:selectOneMenu id="Ano" value="Lista de Matérias: ">
             <f:selectItem itemLabel="2009_1" itemValue="1" />
             <f:selectItem itemLabel="2009_2" itemValue="2" />
             <f:selectItem itemLabel="2010_1" itemValue="3" />
@@ -64,13 +72,20 @@
             <f:selectItem itemLabel="2013_2" itemValue="8" />
             <f:selectItem itemLabel="2014_1" itemValue="9" />
             <f:selectItem itemLabel="2015_1" itemValue="10" />                  
-          </p:selectOneMenu> 
+            </p:selectOneMenu> 
+              <p:outputLabel value="Numero da Questão:" style="color: darkblue; font-weight:bold"/>
+              <p:inputText id="numeroQuestao" style="height: 25px ;width: 40px" > 
+                  
+                   
+              </p:inputText>       
+             
+             
              <p:outputLabel value="Enunciado:" style="color: darkblue; font-weight:bold"/>
              <p:inputTextarea style="height: 50px ;width: 450px"  />
              <p:outputLabel value="Alternativas:" style="color: darkblue; font-weight:bold"/>
              <p:outputLabel value=""/> 
              <p:outputLabel value="A-)"/>
-             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:inputTextarea styleClass="tipo1"/>
              <p:outputLabel value="B-)"/>
              <p:inputTextarea style="height: 30px ;width: 450px"  />
              <p:outputLabel value="C-)"/>
@@ -88,7 +103,7 @@
             <f:selectItem itemLabel="E" itemValue="E" />                
           </p:selectOneMenu> 
             </h:panelGrid>            
-            <p:commandButton value="Envar"/>  
+            <p:commandButton value="Enviar"/>  
             
         </p:tab>
             
@@ -113,6 +128,8 @@
           </p:selectOneMenu>  
             <p:outputLabel value="Ano" style="color: darkblue; font-weight:bold"/>
             <p:outputLabel value="2009_2" style=" font-weight:bold"/>
+            <p:outputLabel value="Numero da Questão" style="color: darkblue; font-weight:bold"/>
+            <p:outputLabel value="15" style=" font-weight:bold"/>
            
          </h:panelGrid>
             <br/>    
@@ -133,10 +150,16 @@ Tal conclusão deriva do fato de que o estabelecimento dessa meta é atribuiçã
             <br/>            
             <br/> 
        <p:commandButton value="Responder"/> 
+       <br/>            
+       <br/>
+       
+       <p:outputLabel value="Comentários" style="color: darkblue; font-weight:bold"/>
+           <br/>            
+            <br/>
            </p:panel>
        
         </p:tab>
-      
+      03755100
     </p:accordionPanel>
        
          

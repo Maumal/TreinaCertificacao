@@ -8,25 +8,24 @@
         <title>Simulador Certificaçao </title>
     </h:head>
     <h:body>
+        <h:outputStylesheet library="css" name="TreinaCertificacao.css"/>
         <p:panel>
             <h1>
-                <p:panel> <h:outputLabel value="Simulador da Certificação." style="color: darkblue"/></p:panel> 
+                <p:panel> <h:outputLabel value="Simulador." style="color: darkblue"/></p:panel> 
             </h1>
             
-            <h5>Sistema de treinamento para as certificações do BB.  </h5>
-            
-            
+            <h5>Sistema de treinamento para as certificações do BB.  </h5>            
             <p:panel>
-            <h:panelGrid columns="14" style="font-size: 15px" >
+                <h:panelGrid id="totais" columns="14" style="font-size: 15px" >
                 <h:outputLabel value="Todas: " style="font-weight:bold"/>
-                <h:outputLabel value="#{PerguntaBean.numeroQuestoes}"/> 
+                <h:outputText value="(#{perguntaBean.numeroDeQuestoes})"/>               
                 <h:outputLabel value="Resolvidas: "/>
                 <h:outputLabel value="(12)" style="color: blue"/>
                 <h:outputLabel value="Não Resolvidas: "/>
                 <h:outputLabel value="(14)"/>
-                <h:outputLabel value="Acertei: "/>
+                <h:outputLabel value="Acertos: "/>
                 <h:outputLabel value="(15)" style="color: green"/>
-                <h:outputLabel value="Errei: "/>
+                <h:outputLabel value="Erros: "/>
                 <h:outputLabel value="(45)" style="color: red"/>
                 
             </h:panelGrid>
@@ -37,58 +36,70 @@
         <p:tab title="Cadastro de Questões">
             <h:panelGrid columns="2" id="materias1" >
              <h:outputLabel value="Escolha uma matéria: " style="color: darkblue; font-weight:bold"/>
-            <p:selectOneMenu id="listaMaterias1" value="Lista de Matérias: ">
-            <f:selectItem itemLabel="Agronegócios" itemValue="1" />
-            <f:selectItem itemLabel="Atendimento Bancário" itemValue="2" />
-            <f:selectItem itemLabel="Comércio Exterior" itemValue="3" />
-            <f:selectItem itemLabel="Conhecimentos Jurídicos" itemValue="4" />
-            <f:selectItem itemLabel="Controles Internos e Risco Operacional" itemValue="5" />
-            <f:selectItem itemLabel="DRS/RSA" itemValue="6" />
-            <f:selectItem itemLabel="Gestão do Crédito" itemValue="7" />
-            <f:selectItem itemLabel="Gestão Organizacional e de Pessoas" itemValue="8" />
+             <p:selectOneMenu id="listaMaterias1" value="{pergunta.marteria}">
+            <f:selectItem itemLabel="Agronegócios" itemValue="Agronegócios" />
+            <f:selectItem itemLabel="Atendimento Bancário" itemValue="Atendimento Bancário" />
+            <f:selectItem itemLabel="Comércio Exterior" itemValue="Comércio Exterior" />
+            <f:selectItem itemLabel="Conhecimentos Jurídicos" itemValue="Conhecimentos Jurídicos" />
+            <f:selectItem itemLabel="Controles Internos e Risco Operacional" itemValue="Controles Internos e Risco Operacional" />
+            <f:selectItem itemLabel="DRS/RSA" itemValue="DRS/RSA" />
+            <f:selectItem itemLabel="Gestão do Crédito" itemValue="Gestão do Crédito" />
+            <f:selectItem itemLabel="Gestão Organizacional e de Pessoas" itemValue="Gestão Organizacional e de Pessoas" />
             <f:selectItem itemLabel="Gestão da Segurança" itemValue="9" />
-            <f:selectItem itemLabel="Marketing" itemValue="10" />
-            <f:selectItem itemLabel="Setor Público" itemValue="11" />            
-            <f:selectItem itemLabel="Tecnologia da Informação" itemValue="12" />
-            <f:selectItem itemLabel="Economia e Finanças" itemValue="13" />            
+            <f:selectItem itemLabel="Marketing" itemValue="Gestão da Segurança" />
+            <f:selectItem itemLabel="Setor Público" itemValue="Setor Público" />            
+            <f:selectItem itemLabel="Tecnologia da Informação" itemValue="Tecnologia da Informação" />
+            <f:selectItem itemLabel="Economia e Finanças" itemValue="Economia e Finanças" />            
           </p:selectOneMenu> 
+           
+             
+             
              <p:outputLabel value= "Ano:" style="color: darkblue; font-weight:bold"/>
-              <p:selectOneMenu id="Ano" value="Lista de Matérias: ">
-            <f:selectItem itemLabel="2009_1" itemValue="1" />
-            <f:selectItem itemLabel="2009_2" itemValue="2" />
-            <f:selectItem itemLabel="2010_1" itemValue="3" />
-            <f:selectItem itemLabel="2010_2" itemValue="4" />
-            <f:selectItem itemLabel="2011_1" itemValue="5" />
-            <f:selectItem itemLabel="2011_2" itemValue="6" />
-            <f:selectItem itemLabel="2012_1" itemValue="7" />
-            <f:selectItem itemLabel="2013_2" itemValue="8" />
-            <f:selectItem itemLabel="2014_1" itemValue="9" />
-            <f:selectItem itemLabel="2015_1" itemValue="10" />                  
-          </p:selectOneMenu> 
+            
+             
+             
+             <p:selectOneMenu id="Ano" value="{pergunta.ano}">
+            <f:selectItem itemLabel="2009_1" itemValue="2009_1" />
+            <f:selectItem itemLabel="2009_2" itemValue="2009_2" />
+            <f:selectItem itemLabel="2010_1" itemValue="2010_1" />
+            <f:selectItem itemLabel="2010_2" itemValue="2010_2" />
+            <f:selectItem itemLabel="2011_1" itemValue="2011_1" />
+            <f:selectItem itemLabel="2011_2" itemValue="2011_2" />
+            <f:selectItem itemLabel="2012_1" itemValue="2012_1" />
+            <f:selectItem itemLabel="2013_2" itemValue="2013_2" />
+            <f:selectItem itemLabel="2014_1" itemValue="2014_1" />
+            <f:selectItem itemLabel="2015_1" itemValue="2015_1" />                  
+            </p:selectOneMenu> 
+            <p:outputLabel value="Numero da Questão:" style="color: darkblue; font-weight:bold"/>
+            <p:inputText id="numeroQuestao" value="{pergunta.numeroQuestao}" style="height: 25px ;width: 40px"  />       
+             
+             
              <p:outputLabel value="Enunciado:" style="color: darkblue; font-weight:bold"/>
-             <p:inputTextarea style="height: 50px ;width: 450px"  />
+             <p:inputTextarea id="Enunciaco" value="{pergunta.enunciado}" style="height: 50px ;width: 450px"  />
              <p:outputLabel value="Alternativas:" style="color: darkblue; font-weight:bold"/>
              <p:outputLabel value=""/> 
              <p:outputLabel value="A-)"/>
-             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:inputTextarea id="alternativaA" value="{pergunta.alternativaA}" style="height: 30px ;width: 450px"  />
              <p:outputLabel value="B-)"/>
-             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:inputTextarea id="alternativaB" value="{pergunta.alternativaB}" styleClass="tipo1"/>
              <p:outputLabel value="C-)"/>
-             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:inputTextarea id="alternativaC" value="{pergunta.alternativaC}" style="height: 30px ;width: 450px"  />
              <p:outputLabel value="D-)"/>
-             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:inputTextarea id="alternativaD" value="{pergunta.alternativaD}" style="height: 30px ;width: 450px"  />
              <p:outputLabel value="E-)"/>
-             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:inputTextarea id="alternativaE" value="{pergunta.alternativaE}" style="height: 30px ;width: 450px"  />
              <p:outputLabel value="RESPOSTA:"/>
-               <p:selectOneMenu id="Correta" value="correta">
+             <p:selectOneMenu id="Correta" value="{pergunta.resposta}">
             <f:selectItem itemLabel="A" itemValue="A" />
             <f:selectItem itemLabel="B" itemValue="B" />
             <f:selectItem itemLabel="C" itemValue="C" />
             <f:selectItem itemLabel="D" itemValue="D" />
             <f:selectItem itemLabel="E" itemValue="E" />                
-          </p:selectOneMenu> 
-            </h:panelGrid>            
-            <p:commandButton value="Envar"/>  
+            </p:selectOneMenu> 
+            </h:panelGrid>  
+            <br/>
+            <p:commandButton value="Salvar"  action="{perguntaRepository.AdicionaPerguntas(pergunta)}"/>
+                           
             
         </p:tab>
             
@@ -113,6 +124,8 @@
           </p:selectOneMenu>  
             <p:outputLabel value="Ano" style="color: darkblue; font-weight:bold"/>
             <p:outputLabel value="2009_2" style=" font-weight:bold"/>
+            <p:outputLabel value="Numero da Questão" style="color: darkblue; font-weight:bold"/>
+            <p:outputLabel value="15" style=" font-weight:bold"/>
            
          </h:panelGrid>
             <br/>    
@@ -132,28 +145,20 @@ Tal conclusão deriva do fato de que o estabelecimento dessa meta é atribuiçã
         </p:selectOneRadio>
             <br/>            
             <br/> 
+            
+            
        <p:commandButton value="Responder"/> 
+       <br/>            
+       <br/>
+       
+       <p:outputLabel value="Comentários" style="color: darkblue; font-weight:bold"/>
+           <br/>            
+            <br/>
            </p:panel>
        
         </p:tab>
       
     </p:accordionPanel>
-       
-         
-         
-         
-         
-         
-         
-         
-        
-             
-         
-       
-        
-        
-        
-        
+            
     </h:body>
 </html>
-
