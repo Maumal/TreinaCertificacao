@@ -9,14 +9,12 @@
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="TreinaCertificacao.css"/>
-        <p:panel>
-            <h1>
-                <p:panel> <h:outputLabel value="Simulador." style="color: darkblue"/></p:panel> 
-            </h1>
+     <p:panel>
             
-            <h5>Sistema de treinamento para as certificações do BB.  </h5>            
-            <p:panel>
-                <h:panelGrid id="totais" columns="14" style="font-size: 15px" >
+                 <h:outputLabel value="Simulador" style="color: darkblue ; font-size: 25px; margin-right: 30px" />           
+            <h:outputLabel value="Sistema de treinamento para as certificações do BB"  style="color: darkblue ; font-size: 15px " />             
+            
+                <h:panelGrid id="totais" columns="14" style="font-size: 12px; margin-left: 300px" >
                 <h:outputLabel value="Todas: " style="font-weight:bold"/>
                 <h:outputText value="(#{perguntaBean.numeroDeQuestoes})"/>               
                 <h:outputLabel value="Resolvidas: "/>
@@ -29,7 +27,7 @@
                 <h:outputLabel value="(45)" style="color: red"/>
                 
             </h:panelGrid>
-            </p:panel>
+            
         </p:panel>
         
         <p:accordionPanel>
@@ -151,7 +149,7 @@ Tal conclusão deriva do fato de que o estabelecimento dessa meta é atribuiçã
        <br/>            
        <br/>
        
-       <p:outputLabel value="Comentários" style="color: darkblue; font-weight:bold"/>
+       <p:outputLabel value="(Comentários / Resumo / Explicações)" style="color: darkblue; font-weight:bold"/>
            <br/>            
             <br/>
            </p:panel>
