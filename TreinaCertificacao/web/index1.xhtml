@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Simulador Certificaçao </title>
+    </h:head>
+    <h:body>
+        <p:panel>
+            <h1>
+                <p:panel> <h:outputLabel value="Simulador da Certificação." style="color: darkblue"/></p:panel> 
+            </h1>
+            
+            <h5>Sistema de treinamento para as certificações do BB.  </h5>
+            
+            
+            <p:panel>
+            <h:panelGrid columns="14" style="font-size: 15px" >
+                <h:outputLabel value="Todas: " style="font-weight:bold"/>
+                <h:outputLabel value="#{PerguntaBean.numeroQuestoes}"/> 
+                <h:outputLabel value="Resolvidas: "/>
+                <h:outputLabel value="(12)" style="color: blue"/>
+                <h:outputLabel value="Não Resolvidas: "/>
+                <h:outputLabel value="(14)"/>
+                <h:outputLabel value="Acertei: "/>
+                <h:outputLabel value="(15)" style="color: green"/>
+                <h:outputLabel value="Errei: "/>
+                <h:outputLabel value="(45)" style="color: red"/>
+                
+            </h:panelGrid>
+            </p:panel>
+        </p:panel>
+        
+        <p:accordionPanel>
+        <p:tab title="Cadastro de Questões">
+            <h:panelGrid columns="2" id="materias1" >
+             <h:outputLabel value="Escolha uma matéria: " style="color: darkblue; font-weight:bold"/>
+            <p:selectOneMenu id="listaMaterias1" value="Lista de Matérias: ">
+            <f:selectItem itemLabel="Agronegócios" itemValue="1" />
+            <f:selectItem itemLabel="Atendimento Bancário" itemValue="2" />
+            <f:selectItem itemLabel="Comércio Exterior" itemValue="3" />
+            <f:selectItem itemLabel="Conhecimentos Jurídicos" itemValue="4" />
+            <f:selectItem itemLabel="Controles Internos e Risco Operacional" itemValue="5" />
+            <f:selectItem itemLabel="DRS/RSA" itemValue="6" />
+            <f:selectItem itemLabel="Gestão do Crédito" itemValue="7" />
+            <f:selectItem itemLabel="Gestão Organizacional e de Pessoas" itemValue="8" />
+            <f:selectItem itemLabel="Gestão da Segurança" itemValue="9" />
+            <f:selectItem itemLabel="Marketing" itemValue="10" />
+            <f:selectItem itemLabel="Setor Público" itemValue="11" />            
+            <f:selectItem itemLabel="Tecnologia da Informação" itemValue="12" />
+            <f:selectItem itemLabel="Economia e Finanças" itemValue="13" />            
+          </p:selectOneMenu> 
+             <p:outputLabel value= "Ano:" style="color: darkblue; font-weight:bold"/>
+              <p:selectOneMenu id="Ano" value="Lista de Matérias: ">
+            <f:selectItem itemLabel="2009_1" itemValue="1" />
+            <f:selectItem itemLabel="2009_2" itemValue="2" />
+            <f:selectItem itemLabel="2010_1" itemValue="3" />
+            <f:selectItem itemLabel="2010_2" itemValue="4" />
+            <f:selectItem itemLabel="2011_1" itemValue="5" />
+            <f:selectItem itemLabel="2011_2" itemValue="6" />
+            <f:selectItem itemLabel="2012_1" itemValue="7" />
+            <f:selectItem itemLabel="2013_2" itemValue="8" />
+            <f:selectItem itemLabel="2014_1" itemValue="9" />
+            <f:selectItem itemLabel="2015_1" itemValue="10" />                  
+          </p:selectOneMenu> 
+             <p:outputLabel value="Enunciado:" style="color: darkblue; font-weight:bold"/>
+             <p:inputTextarea style="height: 50px ;width: 450px"  />
+             <p:outputLabel value="Alternativas:" style="color: darkblue; font-weight:bold"/>
+             <p:outputLabel value=""/> 
+             <p:outputLabel value="A-)"/>
+             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:outputLabel value="B-)"/>
+             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:outputLabel value="C-)"/>
+             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:outputLabel value="D-)"/>
+             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:outputLabel value="E-)"/>
+             <p:inputTextarea style="height: 30px ;width: 450px"  />
+             <p:outputLabel value="RESPOSTA:"/>
+               <p:selectOneMenu id="Correta" value="correta">
+            <f:selectItem itemLabel="A" itemValue="A" />
+            <f:selectItem itemLabel="B" itemValue="B" />
+            <f:selectItem itemLabel="C" itemValue="C" />
+            <f:selectItem itemLabel="D" itemValue="D" />
+            <f:selectItem itemLabel="E" itemValue="E" />                
+          </p:selectOneMenu> 
+            </h:panelGrid>            
+            <p:commandButton value="Envar"/>  
+            
+        </p:tab>
+            
+            
+        <p:tab title="Simulado">
+            <h:panelGrid columns="2" id="materias2" >
+            <h:outputLabel value="Escolha uma matéria: " style="color: darkblue; font-weight:bold"/>
+             <p:selectOneMenu id="listaMaterias2" value="Lista de Matérias: ">
+            <f:selectItem itemLabel="Agronegócios" itemValue="1" />
+            <f:selectItem itemLabel="Atendimento Bancário" itemValue="2" />
+            <f:selectItem itemLabel="Comércio Exterior" itemValue="3" />
+            <f:selectItem itemLabel="Conhecimentos Jurídicos" itemValue="4" />
+            <f:selectItem itemLabel="Controles Internos e Risco Operacional" itemValue="5" />
+            <f:selectItem itemLabel="DRS/RSA" itemValue="6" />
+            <f:selectItem itemLabel="Gestão do Crédito" itemValue="7" />
+            <f:selectItem itemLabel="Gestão Organizacional e de Pessoas" itemValue="8" />
+            <f:selectItem itemLabel="Gestão da Segurança" itemValue="9" />
+            <f:selectItem itemLabel="Marketing" itemValue="10" />
+            <f:selectItem itemLabel="Setor Público" itemValue="11" />            
+            <f:selectItem itemLabel="Tecnologia da Informação" itemValue="12" />
+            <f:selectItem itemLabel="Economia e Finanças" itemValue="13" />            
+          </p:selectOneMenu>  
+            <p:outputLabel value="Ano" style="color: darkblue; font-weight:bold"/>
+            <p:outputLabel value="2009_2" style=" font-weight:bold"/>
+           
+         </h:panelGrid>
+            <br/>    
+            <p:panel>
+            
+            <p:outputLabel value="A autonomia operacional do Banco Central (BC) tem sido um tema de debate entre os economistas. Nesse sentido, muitos analistas consideram que a condução da política monetária, atribuição do BC, pode eventualmente sofrer interferência de instâncias superiores do governo, em especial, no estabelecimento da meta inflacionária. 
+
+Tal conclusão deriva do fato de que o estabelecimento dessa meta é atribuição" style=" font-weight:bold"/>
+            <br/>            
+            <br/> 
+            <p:selectOneRadio id="console" layout="pageDirection" value="#{radioView.console} ">
+            <f:selectItem itemLabel="unicamente do presidente do BC, que pode sofrer pressões para estimular uma meta mais elevada." itemValue="A" />
+            <f:selectItem itemLabel="do Conselho Monetário Nacional (CMN), formado pelos ministros da Fazenda e do Planejamento, Orçamento e Gestão e pelo presidente do BC" itemValue="B" />
+            <f:selectItem itemLabel="da equipe econômica definida pelo presidente da República, que anualmente se reúne para fixar a meta inflacionária, e o BC que deve persegui-la através da política de juros." itemValue="C" />
+            <f:selectItem itemLabel="do presidente do BC e dos bancos públicos, dentre eles o Banco do Brasil, que definem as taxas de inflação para um prazo de dois anos." itemValue="D" />
+            <f:selectItem itemLabel="do Comitê de Política Monetária (Copom), que define a meta inflacionária anualmente e a meta da taxa de juros a ser alcançada para que a taxa de inflação convirja para sua meta." itemValue="E" />
+        </p:selectOneRadio>
+            <br/>            
+            <br/> 
+       <p:commandButton value="Responder"/> 
+           </p:panel>
+       
+        </p:tab>
+      
+    </p:accordionPanel>
+       
+         
+         
+         
+         
+         
+         
+         
+        
+             
+         
+       
+        
+        
+        
+        
+    </h:body>
+</html>
+
