@@ -3,7 +3,7 @@ package br.com.bb.cenopsp.treina.certificacao.entidade;
 import java.util.ArrayList;
 
 public class Pergunta {
-    private String marteria;
+    private String materia;
     private String ano;
     private String NumeroQuestao;
     private String enunciado;
@@ -19,7 +19,7 @@ public class Pergunta {
     }
 
     public Pergunta(String marteria, String ano, String NumeroQuestao, String enunciado, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaE, String Resposta, ArrayList<String> comentarios) {
-        this.marteria = marteria;
+        this.materia = marteria;
         this.ano = ano;
         this.NumeroQuestao = NumeroQuestao;
         this.enunciado = enunciado;
@@ -53,12 +53,12 @@ public class Pergunta {
     }
 
     
-    public String getMarteria() {
-        return marteria;
+    public String getMateria() {
+        return materia;
     }
 
-    public void setMarteria(String marteria) {
-        this.marteria = marteria;
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
     public String getAno() {

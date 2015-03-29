@@ -6,6 +6,7 @@ import br.com.bb.cenopsp.treina.certificacao.entidade.Pergunta;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -17,6 +18,7 @@ public class PerguntaBean  implements Serializable {
   private Pergunta pergunta ;
   private List<Pergunta> listaPerguntas;
  
+  @PostConstruct
  public void PerguntaBean() { 
         pergunta=new Pergunta();
         listaPerguntas=new ArrayList<>();
@@ -47,7 +49,11 @@ public class PerguntaBean  implements Serializable {
         listaPerguntas.add(new Pergunta("Setor Público", "2009_2","16", "P 1", "A1", "A2", "A3", "A4", "A5", "C",null));
         listaPerguntas.add(new Pergunta("Tecnologia da Informação", "2009_2","1", "P 1", "A1", "A2", "A3", "A4", "A5", "C",null));
         listaPerguntas.add(new Pergunta("Economia e Finanças", "2009_2","18", "P 1", "A1", "A2", "A3", "A4", "A5", "C",null));   
+        
+    
         this.numeroDeQuestoes=listaPerguntas.size();
+      
+        
     }
     
  
