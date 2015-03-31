@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Simulador Certificaçao </title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="TreinaCertificacao.css"/>
+     <p:panel >            
+                <h:outputLabel value="Simulador" style="color: darkblue ; font-size: 20px; margin-right: 100px" />           
+                <h:outputLabel value="Sistema de treinamento para as certificações do BB"  style="color: darkblue ; font-size: 15px " />             
+            
+                <h:panelGrid id="totais" columns="14" style="font-size: 12px; margin-left: 300px" >
+                <h:outputLabel value="Todas: " style="font-weight:bold"/>
+                <h:outputText value="(#{perguntaBean.numeroDeQuestoes})"/>               
+                <h:outputLabel value="Resolvidas: "/>
+                <h:outputLabel value="(12)" style="color: blue"/>
+                <h:outputLabel value="Não Resolvidas: "/>
+                <h:outputLabel value="(14)"/>
+                <h:outputLabel value="Acertos: "/>
+                <h:outputLabel value="(15)" style="color: green"/>
+                <h:outputLabel value="Erros: "/>
+                <h:outputLabel value="(45)" style="color: red"/>                
+            </h:panelGrid>     
+        </p:panel>
+                    
+        <p:panel  id="treino">
+            <h:outputLabel value="Treino:" style="color: darkblue ; font-size: 20px; margin-right: 30px" />  
+            
+           <h:outputLabel value="Escolha uma matéria: " style="font-size: 16px; color: darkblue; font-weight:bold"/>
+            <p:selectOneMenu id="listaMaterias2" value="#{perguntaBean.pergunta.materia}"  >                  
+                           <f:selectItem itemLabel="#{perguntaBean.pergunta.materia}" itemValue="" />
+            <f:selectItem itemLabel="Agronegócios" itemValue="Agronegócios"  />
+            <f:selectItem itemLabel="Atendimento Bancário" itemValue="ATENDIMENTO BANCÁRIO" />
+            <f:selectItem itemLabel="Comércio Exterior" itemValue="COMÉRCIO EXTERIOR" />
+            <f:selectItem itemLabel="Conhecimentos Jurídicos" itemValue="CONHECIMENTOS JURÍDICOS" />
+            <f:selectItem itemLabel="CONTROLES INTERNOS E RISCO OPERACIONAL" itemValue="CONTROLES INTERNOS E RISCO OPERACIONAL" />
+            <f:selectItem itemLabel="DRS/RSA" itemValue="DRS/RSA" />
+            <f:selectItem itemLabel="Gestão do Crédito" itemValue="GESTÃO DO CRÉDITO" />
+            <f:selectItem itemLabel="Gestão Organizacional e de Pessoas" itemValue="GESTÃO ORGANIZACIONAL E DE PESSOAS" />
+            <f:selectItem itemLabel="Gestão da Segurança" itemValue="GESTÃO DE SEGURANÇA" />
+            <f:selectItem itemLabel="Marketing" itemValue="MARKETING" />
+            <f:selectItem itemLabel="Setor Público" itemValue="SETOR PÚBLICO" />            
+            <f:selectItem itemLabel="Tecnologia da Informação" itemValue="TECNOLOGIA DA INFORMAÇÃO" />
+            <f:selectItem itemLabel="Economia e Finanças" itemValue="ECONOMIA E FINANÇAS" />    
+            
+            <p:ajax update="treino"  listener="#{perguntaBean.carregaQuestaoAleatoriaInicio()}"/>
+            </p:selectOneMenu>
+            <br/>   
+            <br/>         
+            <p:panel id="pergunta">
+                    <h:panelGrid columns="2" id="materias2" style="font-size: 12px" > 
+                    <p:outputLabel value="Matéria" style="color: darkblue; font-weight:bold"/>
+                    <p:outputLabel value="#{perguntaBean.pergunta.materia}" style=" font-weight:bold"/>
+                    <p:outputLabel value="Ano" style="color: darkblue; font-weight:bold"/>
+                    <p:outputLabel value="#{perguntaBean.pergunta.ano}" style=" font-weight:bold"/>
+                    <p:outputLabel value="Numero da Questão" style="color: darkblue; font-weight:bold"/>
+                    <p:outputLabel value="#{perguntaBean.pergunta.numeroQuestao}" style=" font-weight:bold"/>
+                    <p:outputLabel value="teste" style="color: darkblue; font-weight:bold"/>
+                   
+         </h:panelGrid>
+                <br/>
+                
+                <p:outputLabel value="#{perguntaBean.pergunta.enunciado}" style=" font-weight:bold"/>                      
+            <br/> 
+          
+            <p:selectOneRadio id="console" layout="pageDirection" value="#{radioView.console} ">
+            <f:selectItem itemLabel="#{perguntaBean.pergunta.alternativaA}" itemValue="A" />
+            <f:selectItem itemLabel="#{perguntaBean.pergunta.alternativaB}" itemValue="B" />
+            <f:selectItem itemLabel="#{perguntaBean.pergunta.alternativaC}" itemValue="C" />
+            <f:selectItem itemLabel="#{perguntaBean.pergunta.alternativaD}" itemValue="D" />
+            <f:selectItem itemLabel="#{perguntaBean.pergunta.alternativaE}" itemValue="E" />
+        </p:selectOneRadio>                   
+            <br/>   
+            <p:commandButton value="Responder" action="{perguntaBean.carregaQuestaoAleatoria()}" update="treino"/> 
+            <p:commandButton value="Nova Questão" action="#{perguntaBean.carregaQuestaoAleatoriaInicio()}" update="treino"/> 
+       <br/>
+       <br/>
+       <p:commandLink value="(Comentários / Resumo / Explicações)" style="color: darkblue; font-weight:bold"/>
+       <p:outputLabel value="#{perguntaBean.pergunta.comentarios}" style=" font-weight:bold"/> <br/>
+                       
+            <br/>
+           </p:panel>
+       
+        </p:panel>
+                 
+    </h:body>
+</html>
